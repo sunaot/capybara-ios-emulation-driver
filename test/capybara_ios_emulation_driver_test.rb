@@ -25,7 +25,7 @@ class TestCapybaraIosEmulation < MiniTest::Unit::TestCase
 
   def test_rack_test_driver
     Capybara.register_driver :ios_rack_test do |app|
-      Capybara::Selenium::Driver::Ios.rack_test_driver :app => app
+      Capybara::RackTest::Driver::Ios.rack_test_driver :app => app
     end
     Capybara.app = proc { [ 200, {}, 'rack app' ] }
     Capybara.default_driver = :ios_rack_test

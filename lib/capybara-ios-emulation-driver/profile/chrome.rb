@@ -8,7 +8,7 @@ module Capybara::Selenium::Driver::Ios
         }.update(params)
 
         profile = ::Selenium::WebDriver::Chrome::Profile.new
-        ua = Capybara::Selenium::Driver::Ios::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
+        ua = ::Capybara::IosEmulationDriver::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
         {
           :switches => [ '--allow-running-insecure-content',
                          "--user-agent='#{ua}'" ],

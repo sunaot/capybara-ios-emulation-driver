@@ -25,7 +25,9 @@ module Capybara::Selenium::Driver::Ios
 
     ::Capybara::Selenium::Driver.new(options[:app], Profile::Firefox.driver_options(options).merge(:browser => :firefox))
   end
+end
 
+module Capybara::RackTest::Driver::Ios
   def self.rack_test_driver params = {}
     options = {
       :ios_version => 7,
@@ -34,7 +36,7 @@ module Capybara::Selenium::Driver::Ios
       :rack_test_options => {}
     }.update(params)
 
-    ua = ::Capybara::Selenium::Driver::Ios::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
+    ua = ::Capybara::IosEmulationDriver::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
     driver = Class.new(::Capybara::RackTest::Driver)
     driver.module_eval %|
       def env 

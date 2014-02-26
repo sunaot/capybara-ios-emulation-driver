@@ -8,7 +8,7 @@ module Capybara::Selenium::Driver::Ios
           'app.update.auto' => false,
           'app.update.enabled' => false,
         }.update(params)
-        options['general.useragent.override'] = Capybara::Selenium::Driver::Ios::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
+        options['general.useragent.override'] = ::Capybara::IosEmulationDriver::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
 
         profile = ::Selenium::WebDriver::Firefox::Profile.new
         profile_params = options.reject {|k,v| v.nil? or [:ios_version, :ios_device].include?(k) }
