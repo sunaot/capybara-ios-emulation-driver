@@ -35,7 +35,7 @@ Capybara.default_driver = :ios_ff
 
 # rack test
 Capybara.register_driver :ios_rack_test do |app|
-  Capybara::Selenium::Driver::Ios.rack_test_driver :app => app
+  Capybara::RackTest::Driver::Ios.rack_test_driver :app => app
 end
 Capybara.default_driver = :ios_rack_test
 ```
