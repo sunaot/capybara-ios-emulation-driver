@@ -28,12 +28,12 @@ module Capybara::Selenium::Driver::Ios
       raise unless [5,6,7].include?(request[:ios].to_i)
       raise unless %w[iphone ipad ipod_touch].include?(request[:device].to_s.downcase)
       case request[:device].to_s.downcase
-      when 'iphone'
-        self.const_get "Ios#{request[:ios].to_i}::Iphone"
+      when 'iphone' # const_get "Ios#{request[:ios].to_i}::Iphone" is incompatible to Ruby 1.9
+        self.const_get("Ios#{request[:ios].to_i}").const_get('Iphone')
       when 'ipad'
-        self.const_get "Ios#{request[:ios].to_i}::Ipad"
+        self.const_get("Ios#{request[:ios].to_i}").const_get('Ipad')
       when 'ipod_touch'
-        self.const_get "Ios#{request[:ios].to_i}::IpodTouch"
+        self.const_get("Ios#{request[:ios].to_i}").const_get('IpodTouch')
       end
     end
   end
