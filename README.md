@@ -1,5 +1,7 @@
 # capybara-ios-emulation-driver
 
+[![Build Status](https://travis-ci.org/sunaot/capybara-selenium-driver-ios-emulation.png)](https://travis-ci.org/sunaot/capybara-selenium-driver-ios-emulation)
+
 Enable drivers to emulate iOS user agent.
 
 ## Installation
