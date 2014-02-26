@@ -1,4 +1,4 @@
-Copyright (c) 2014 tanabe-sunao
+Copyright (c) 2014 sunaot
 
 MIT License
 
