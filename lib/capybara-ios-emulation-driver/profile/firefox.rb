@@ -1,21 +1,23 @@
-module Capybara::Selenium::Driver::Ios::Profile
-  class Firefox
-    def self.driver_options(params = {})
-      options = {
-        :ios_version => 7,
-        :ios_device  => :iphone, 
-        'app.update.auto' => false,
-        'app.update.enabled' => false,
-      }.update(params)
-      options['general.useragent.override'] = Capybara::Selenium::Driver::Ios::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
+module Capybara::Selenium::Driver::Ios
+  module Profile
+    class Firefox
+      def self.driver_options(params = {})
+        options = {
+          :ios_version => 7,
+          :ios_device  => :iphone,
+          'app.update.auto' => false,
+          'app.update.enabled' => false,
+        }.update(params)
+        options['general.useragent.override'] = Capybara::Selenium::Driver::Ios::UserAgent.of(:ios => options[:ios_version], :device => options[:ios_device])
 
-      profile = ::Selenium::WebDriver::Firefox::Profile.new
-      profile_params = options.reject {|k,v| v.nil? or [:ios_version, :ios_device].include?(k) }
-      profile_params.each do |key, val|
-        profile[key] = val
+        profile = ::Selenium::WebDriver::Firefox::Profile.new
+        profile_params = options.reject {|k,v| v.nil? or [:ios_version, :ios_device].include?(k) }
+        profile_params.each do |key, val|
+          profile[key] = val
+        end
+
+        { :profile => profile }
       end
-
-      { :profile => profile }
     end
   end
 end

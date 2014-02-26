@@ -1,3 +1,5 @@
+require 'capybara'
+require 'selenium-webdriver'
 require "capybara-ios-emulation-driver/version"
 require "capybara-ios-emulation-driver/user_agent"
 require "capybara-ios-emulation-driver/profile/chrome"
