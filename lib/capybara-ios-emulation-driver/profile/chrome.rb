@@ -3,7 +3,7 @@ module Capybara::Selenium::Driver::Ios
     class Chrome
       def self.driver_options(params = {})
         options = {
-          :ios_version => 7,
+          :ios_version => 8,
           :ios_device  => :iphone,
         }.update(params)
 
