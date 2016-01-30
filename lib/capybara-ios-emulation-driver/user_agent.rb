@@ -36,12 +36,12 @@ module Capybara::IosEmulationDriver
       raise unless [5,6,7,8].include?(request[:ios].to_i)
       raise unless %w[iphone ipad ipod_touch].include?(request[:device].to_s.downcase)
       case request[:device].to_s.downcase
-      when 'iphone' # const_get "Ios#{request[:ios].to_i}::Iphone" is incompatible to Ruby 1.9
-        self.const_get("Ios#{request[:ios].to_i}").const_get('Iphone')
+      when 'iphone'
+        self.const_get("Ios#{request[:ios].to_i}::Iphone")
       when 'ipad'
-        self.const_get("Ios#{request[:ios].to_i}").const_get('Ipad')
+        self.const_get("Ios#{request[:ios].to_i}::Ipad")
       when 'ipod_touch'
-        self.const_get("Ios#{request[:ios].to_i}").const_get('IpodTouch')
+        self.const_get("Ios#{request[:ios].to_i}::IpodTouch")
       end
     end
   end
