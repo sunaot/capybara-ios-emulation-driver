@@ -8,7 +8,7 @@ require "capybara-ios-emulation-driver/profile/firefox"
 module Capybara::Selenium::Driver::Ios
   def self.chrome_driver params = {}
     options = {
-      :ios_version => 8,
+      :ios_version => ::Capybara::IosEmulationDriver::LATEST_IOS_VERSION,
       :ios_device  => :iphone,
       :app         => nil
     }.update(params)
@@ -18,7 +18,7 @@ module Capybara::Selenium::Driver::Ios
 
   def self.firefox_driver params = {}
     options = {
-      :ios_version => 8,
+      :ios_version => ::Capybara::IosEmulationDriver::LATEST_IOS_VERSION,
       :ios_device  => :iphone,
       :app         => nil
     }.update(params)
@@ -30,7 +30,7 @@ end
 module Capybara::RackTest::Driver::Ios
   def self.rack_test_driver params = {}
     options = {
-      :ios_version => 8,
+      :ios_version => ::Capybara::IosEmulationDriver::LATEST_IOS_VERSION,
       :ios_device  => :iphone,
       :app         => nil,
       :rack_test_options => {}

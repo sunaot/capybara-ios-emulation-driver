@@ -1,9 +1,9 @@
-require 'minitest/unit'
 require 'minitest/autorun'
 require 'capybara-ios-emulation-driver'
+require 'capybara/dsl'
 
-class TestCapybaraIosEmulation < MiniTest::Unit::TestCase
-  include Capybara::DSL
+class TestCapybaraIosEmulation < Minitest::Test
+  include ::Capybara::DSL
 
   def test_chrome_driver
     Capybara.register_driver :ios_chrome do |app|

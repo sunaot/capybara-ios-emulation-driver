@@ -1,4 +1,6 @@
 module Capybara::IosEmulationDriver
+  LATEST_IOS_VERSION = 8
+
   module UserAgent
     module Ios8
       Iphone    = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/8.0 Mobile/11A465 Safari/9537.53'
@@ -28,7 +30,7 @@ module Capybara::IosEmulationDriver
     # device: :iphone, :ipad, :ipod_touch
     def self.of(params = {})
       request = {
-        :ios    => 8,
+        :ios    => LATEST_IOS_VERSION,
         :device => :iphone,
       }.update(params)
       raise unless [5,6,7,8].include?(request[:ios].to_i)

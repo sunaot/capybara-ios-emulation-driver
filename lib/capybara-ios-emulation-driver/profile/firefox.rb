@@ -3,7 +3,7 @@ module Capybara::Selenium::Driver::Ios
     class Firefox
       def self.driver_options(params = {})
         options = {
-          :ios_version => 8,
+          :ios_version => ::Capybara::IosEmulationDriver::LATEST_IOS_VERSION,
           :ios_device  => :iphone,
           'app.update.auto' => false,
           'app.update.enabled' => false,
