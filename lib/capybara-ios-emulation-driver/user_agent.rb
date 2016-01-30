@@ -1,7 +1,13 @@
 module Capybara::IosEmulationDriver
-  LATEST_IOS_VERSION = 8
+  LATEST_IOS_VERSION = 9
 
   module UserAgent
+    module Ios9
+      Iphone    = 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1'
+      Ipad      = 'Mozilla/5.0 (iPad; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1'
+      IpodTouch = 'Mozilla/5.0 (iPod touch; CPU OS 9_0 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13A344 Safari/601.1'
+    end
+
     module Ios8
       Iphone    = 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12D508 Safari/600.1.4'
       Ipad      = 'Mozilla/5.0 (iPad; CPU OS 8_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12D508 Safari/600.1.4'
@@ -26,14 +32,14 @@ module Capybara::IosEmulationDriver
       IpodTouch = 'Mozilla/5.0 (iPod; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3'
     end
 
-    #    ios: 5, 6, 7, 8
+    #    ios: 5, 6, 7, 8, 9
     # device: :iphone, :ipad, :ipod_touch
     def self.of(params = {})
       request = {
         :ios    => LATEST_IOS_VERSION,
         :device => :iphone,
       }.update(params)
-      raise unless [5,6,7,8].include?(request[:ios].to_i)
+      raise unless (5..LATEST_IOS_VERSION).include?(request[:ios].to_i)
       raise unless %w[iphone ipad ipod_touch].include?(request[:device].to_s.downcase)
       case request[:device].to_s.downcase
       when 'iphone'
