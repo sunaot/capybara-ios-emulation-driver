@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'capybara-ios-emulation-driver'
+require 'capybara-ios_emulation_driver'
 require 'capybara/dsl'
 
 class TestCapybaraIosEmulation < Minitest::Test

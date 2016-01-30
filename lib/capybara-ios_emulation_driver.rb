@@ -1,9 +1,9 @@
 require 'capybara'
 require 'selenium-webdriver'
-require "capybara-ios-emulation-driver/version"
-require "capybara-ios-emulation-driver/user_agent"
-require "capybara-ios-emulation-driver/profile/chrome"
-require "capybara-ios-emulation-driver/profile/firefox"
+require "capybara-ios_emulation_driver/version"
+require "capybara-ios_emulation_driver/user_agent"
+require "capybara-ios_emulation_driver/profile/chrome"
+require "capybara-ios_emulation_driver/profile/firefox"
 
 module Capybara::Selenium::Driver::Ios
   def self.chrome_driver params = {}

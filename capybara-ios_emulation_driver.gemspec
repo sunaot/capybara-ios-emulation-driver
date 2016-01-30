@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'capybara-ios-emulation-driver/version'
+require 'capybara-ios_emulation_driver/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "capybara-ios-emulation-driver"
+  spec.name          = "capybara-ios_emulation_driver"
   spec.version       = Capybara::IosEmulationDriver::VERSION
   spec.authors       = ["sunaot"]
   spec.email         = ["sunao.tanabe@gmail.com"]
   spec.summary       = "Enable drivers to emulate iOS user agent."
   spec.description   = ''
-  spec.homepage      = "https://github.com/sunaot/capybara-selenium-driver-ios-emulation"
+  spec.homepage      = "https://github.com/sunaot/capybara-ios_emulation_driver"
   spec.license       = "MIT"
   spec.required_ruby_version = '>= 2.0.0'
 
